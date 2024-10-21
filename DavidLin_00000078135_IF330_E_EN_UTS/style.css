@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #3e7946;
+}
+
+form p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container-dashboard {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    color: #333;
+}
+
+.dashboard-header a {
+    text-decoration: none;
+    color: white;
+    background-color: #5cb85c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dashboard-header a:hover {
+    background-color: #4cae4c;
+}
+
+/* To-Do List Section */
+.todo-list-section {
+    margin-top: 20px;
+}
+
+.todo-list-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+ul.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.todo-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-left: 5px solid #5cb85c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+ul.todo-list li.completed {
+    border-left-color: #337ab7;
+    background-color: #e6f0fa;
+    text-decoration: line-through;
+}
+
+ul.todo-list li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action buttons */
+.todo-list-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.todo-list-actions a {
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    background-color: #d9534f;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.todo-list-actions a.edit {
+    background-color: #5bc0de;
+}
+
+.todo-list-actions a:hover {
+    opacity: 0.8;
+}
+
+/* Filter section */
+.filter-section {
+    margin: 20px 0;
+}
+
+.filter-section select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.filter-section input[type="text"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.filter-section button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-section button:hover {
+    background-color: #4cae4c;
+}
+
+/* Profile link */
+.profile-link {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.profile-link a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #5cb85c;
+}
+
+.profile-link a:hover {
+    text-decoration: underline;
+}

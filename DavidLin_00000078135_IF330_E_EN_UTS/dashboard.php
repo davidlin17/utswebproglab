@@ -6,9 +6,34 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
+
+// Ambil filter dan pencarian dari POST
+$filter = isset($_POST['filter']) ? $_POST['filter'] : 'all';
+$search = isset($_POST['search']) ? $_POST['search'] : '';
+
+// Query dasar
 $query = "SELECT * FROM todos WHERE user_id = ?";
+
+// Tambahkan kondisi filter
+if ($filter == 'completed') {
+    $query .= " AND completed = 1";
+} elseif ($filter == 'incomplete') {
+    $query .= " AND completed = 0";
+}
+
+// Tambahkan kondisi pencarian
+if (!empty($search)) {
+    $query .= " AND title LIKE ?";
+    $search_param = "%" . $search . "%";
+}
+
+// Eksekusi query
 $stmt = $conn->prepare($query);
-$stmt->bind_param("i", $user_id);
+if (!empty($search)) {
+    $stmt->bind_param("is", $user_id, $search_param);
+} else {
+    $stmt->bind_param("i", $user_id);
+}
 $stmt->execute();
 $todos = $stmt->get_result();
 ?>
@@ -37,6 +62,9 @@ $todos = $stmt->get_result();
                 <li class="<?= $todo['completed'] ? 'completed' : '' ?>">
                     <?= htmlspecialchars($todo['title']) ?>
                     <div class="todo-list-actions">
+                        <?php if (!$todo['completed']): ?>
+                            <a href="mark_done.php?id=<?= $todo['id'] ?>" class="done">Mark as Done</a>
+                        <?php endif; ?>
                         <a href="edit_todo.php?id=<?= $todo['id'] ?>" class="edit">Edit</a>
                         <a href="delete_todo.php?id=<?= $todo['id'] ?>" class="delete">Hapus</a>
                     </div>
@@ -46,12 +74,12 @@ $todos = $stmt->get_result();
     </div>
 
     <div class="filter-section">
-        <form method="post" action="">
-            <input type="text" name="search" placeholder="Cari tugas..." />
+        <form method="post" action="dashboard.php">
+            <input type="text" name="search" placeholder="Cari tugas..." value="<?= htmlspecialchars($search) ?>" />
             <select name="filter">
-                <option value="all">Semua</option>
-                <option value="completed">Selesai</option>
-                <option value="incomplete">Belum Selesai</option>
+                <option value="all" <?= $filter == 'all' ? 'selected' : '' ?>>Semua</option>
+                <option value="completed" <?= $filter == 'completed' ? 'selected' : '' ?>>Selesai</option>
+                <option value="incomplete" <?= $filter == 'incomplete' ? 'selected' : '' ?>>Belum Selesai</option>
             </select>
             <button type="submit">Terapkan Filter</button>
         </form>

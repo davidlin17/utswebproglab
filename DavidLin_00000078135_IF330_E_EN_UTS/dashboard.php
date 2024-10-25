@@ -45,7 +45,130 @@ $todos = $stmt->get_result();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css"> <!-- Menghubungkan ke file CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Match with the theme of the uploaded image */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container-dashboard {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .dashboard-header a {
+            text-decoration: none;
+            background-color: #0066ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .todo-list-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .todo-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .todo-list li {
+            background: #f1f4f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .todo-list h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .todo-list p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .completed h3 {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        .todo-list-actions {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .todo-list-actions a {
+            text-decoration: none;
+            margin-left: 10px;
+            color: #0066ff;
+        }
+
+        .filter-section {
+            margin-top: 20px;
+        }
+
+        .filter-section form {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .filter-section input, 
+        .filter-section select, 
+        .filter-section button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .filter-section button {
+            background-color: #0066ff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .profile-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .profile-link a {
+            margin: 0 10px;
+            color: #0066ff;
+            text-decoration: none;
+        }
+
+        .profile-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
@@ -60,7 +183,8 @@ $todos = $stmt->get_result();
         <ul class="todo-list">
             <?php while($todo = $todos->fetch_assoc()): ?>
                 <li class="<?= $todo['completed'] ? 'completed' : '' ?>">
-                    <?= htmlspecialchars($todo['title']) ?>
+                    <h3><?= htmlspecialchars($todo['title']) ?></h3>
+                    <p><?= htmlspecialchars($todo['description']) ?></p> <!-- Show description below the title -->
                     <div class="todo-list-actions">
                         <?php if (!$todo['completed']): ?>
                             <a href="mark_done.php?id=<?= $todo['id'] ?>" class="done">Mark as Done</a>

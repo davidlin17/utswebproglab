@@ -56,52 +56,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         /* Body Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: linear-gradient(to bottom right, #dfefff, #b0d5fa); /* Gradien biru muda */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             color: #333;
-            padding: 20px;
-        }
-
-        /* Heading Styles */
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #4CAF50; /* Warna hijau */
         }
 
         /* Form Container Styles */
         .form-container {
-            background-color: white;
+            background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
             max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Heading Styles */
+        h1 {
+            margin-bottom: 20px;
+            color: #333; /* Warna teks judul */
+            font-size: 24px;
         }
 
         /* Input Styles */
         input[type="text"],
         textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 14px;
         }
 
         /* Button Styles */
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #4CAF50; /* Warna hijau */
+            padding: 12px;
+            background-color: #007bff; /* Warna biru senada */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
             transition: background-color 0.3s;
+            margin-top: 10px;
         }
 
         button:hover {
-            background-color: #45a049; /* Warna hijau lebih gelap saat hover */
+            background-color: #0056b3; /* Warna biru lebih gelap saat hover */
         }
 
         /* Message Styles */
